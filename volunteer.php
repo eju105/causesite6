@@ -21,19 +21,34 @@
     <link href="css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-    <script src="js/respond.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../src/jquery.boilerplate.js"></script>
 
+	<script src="js/respond.js"></script>
 	<script src="js/validator.js"></script>
+
+	<script>
+function validateForm() {
+    var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+}
+</script>
+	
+
 	<style>
 	.emailErr{
 		font-size   : 8pt;
 		color 		: red;
 	}
 	</style>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-		<script src="../src/jquery.boilerplate.js"></script>
+    
     
 </head>
 <body>
@@ -116,33 +131,32 @@
 			</form>
 		</div>
 
-		<div>
+		<div class="container" style="border-style:solid; color: rgb(157, 229, 179); border-width:1;>
 			<form action="process.php" method="get">
-		<table>
-			<tr>
-				<td>Email</td>
-				<td>
-					<input type="text" name="email" id="email" placeholder="Enter your email address"/>
-					<br>
-					<span class="emailErr"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="password" name="auth" id="auth" placeholder="Enter password"/></td>
-			</tr>
-			<tr>
-				<td>Zip Code</td>
-				<td>
-					<input type="text" name="zip" id="zip" placeholder="ex 12345" maxlength="5">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="button" value="Submit" id="formBtn">
-				</td>
-			</tr>
-		</table>
+				
+			<input type="text" id="userInput" placeholder="Name">
+
+			<input type="text" id="userInput" placeholder="Email">
+
+			<input type="text" id="userInput2" placeholder="Password">
+
+			<input type="text" id="userInput3" placeholder="ZipCode">
+
+
+			<button id="submitData">
+			SUBMIT
+			</button>
+
+			<hr>
+			<input type="text" id="searchKey" placeholder="enter data">
+
+			<button id="searchData">
+			SEARCH
+			</button>
+
+			<hr>
+
+	<div id="displayData"></div>
 	</form>
 
 			

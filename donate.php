@@ -25,6 +25,18 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="../src/jquery.boilerplate.js"></script>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+	    <script>
+	function validateForm() {
+	    var x = document.forms["myForm"]["email"].value;
+	    var atpos = x.indexOf("@");
+	    var dotpos = x.lastIndexOf(".");
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+	        alert("Not a valid e-mail address");
+	        return false;
+	    }
+	}
+	</script>	
 </head>
 <body>
 	
@@ -130,6 +142,16 @@
 			</div>
 		</div>
 
+		<div class="container" style="border-style:solid; color: rgb(157, 229, 179); border-width:1;>
+				<form name="myForm" action="demo_form.asp" onsubmit="return validateForm();" method="post">
+	Email: <input type="text" name="email">
+	<input type="submit" value="Submit">
+	</form>
+			
+
+
+		</div>
+
 <!-- icons for donations -->
 	
 	<div class="container-fluid" border-style:solid; color: rgb(157, 229, 179); border-width:1;>
@@ -151,7 +173,7 @@
 	 	</div>
 	 </div>	
 
-
+	 
 
 
 

@@ -6,7 +6,7 @@
 	class dbCon{
 		//Update these to match your database
 		private $db;
-		private $dbName 	= 'park_it_app';
+		private $dbName 	= 'causesite6';
 		private $username 	= 'root';
 		private $password	= '';
 		private $host 		= 'localhost';
